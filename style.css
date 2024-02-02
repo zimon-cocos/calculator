@@ -1,0 +1,45 @@
+
+body{
+    background-color: green;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+
+}
+
+button{
+    background-color: yellow;
+    display: flex;
+    flex: 1;
+    margin: 24px
+
+}
+
+#line1,#line2,#line3{
+    background-color: aqua;
+    display: flex;
+    flex: 1;
+    flex: row;
+    justify-content: center;
+}
+
+#calcBody{
+    background-color: blue;
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 800px;
+
+}
+
+#display{
+    background-color: black;
+    display: flex;
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin: 28px;
+}
