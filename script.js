@@ -43,3 +43,5 @@ let operate = function(){
     }
 
 
+const displayText = document.getElementById("displayText")
+displayText.innerText = "WHAAAAAAAAAAAT"

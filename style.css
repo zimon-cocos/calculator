@@ -40,4 +40,13 @@ button{
     display: flex;
     flex: 1;
     margin: 28px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#displayText{
+    background-color: black;
+    color: white;
+    margin: 4px;
+
 }
