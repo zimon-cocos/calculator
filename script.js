@@ -14,6 +14,8 @@ const divide = function(a,b){
     return a/b
 }
 
+
+
 let a = 0
 let b = 0
 const operators = ["+","-","*","/"]
@@ -72,24 +74,29 @@ equalsBtn.addEventListener("click",e=>{
     switch(operator){
         case "+":
             console.log(`vysledok je ${parseFloat(firstOperand) + parseFloat(secondOperand)}`)
+            displayText.innerText = `${parseFloat(firstOperand) + parseFloat(secondOperand)}`
             break;
         case "-":
             console.log(`vysledok je ${parseFloat(firstOperand) - parseFloat(secondOperand)}`)
+            displayText.innerText = `${parseFloat(firstOperand) - parseFloat(secondOperand)}`
             break;
         case "*":
             console.log(`vysledok je ${parseFloat(firstOperand) * parseFloat(secondOperand)}`)
+            displayText.innerText = `${parseFloat(firstOperand) * parseFloat(secondOperand)}`
             break;
         case "/":
             console.log(`vysledok je ${parseFloat(firstOperand) / parseFloat(secondOperand)}`)
+            displayText.innerText = `${parseFloat(firstOperand) / parseFloat(secondOperand)}`
 
     }
 })
 
 clearBtn.addEventListener("click",e=>{
-     firstOperand = ""
+    firstOperand = ""
     secondOperand = ""
     operator = ""
     switchVariable = 0
+    displayText.innerText = ""
     console.log("Cleared")
 })
 
@@ -100,9 +107,11 @@ addBtn.addEventListener("click",e=>{
     if(switchVariable == 0){
         switchVariable += 1
         operator += "+" 
+        displayText.innerText += "+"
     }
     else{
         switchVariable += -1
+        displayText.inert += "+"
     }
 
     console.log(switchVariable + " je switchvar")
@@ -146,10 +155,12 @@ divideBtn.addEventListener("click",e=>{
 button0.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "0"
+        displayText.innerText = firstOperand
         console.log("first operator je " + firstOperand)        
     }
     else{
         secondOperand += "0"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
@@ -157,10 +168,12 @@ button0.addEventListener("click", e=>{
 button1.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "1"
+        displayText.innerText = firstOperand
         console.log("first operator je " + firstOperand)               
     }
     else{
         secondOperand += "1"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
@@ -168,10 +181,12 @@ button1.addEventListener("click", e=>{
 button2.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "2"      
+        displayText.innerText = firstOperand
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "2"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
@@ -179,76 +194,90 @@ button2.addEventListener("click", e=>{
 button3.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "3"      
+        displayText.innerText = firstOperand
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "3"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button4.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "4"      
+        firstOperand += "4" 
+        displayText.innerText = firstOperand     
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "4"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button5.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "5"      
+        firstOperand += "5"   
+        displayText.innerText = firstOperand   
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "5"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button6.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "6"      
+        firstOperand += "6"  
+        displayText.innerText = firstOperand    
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "6"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button7.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "7"      
+        firstOperand += "7"  
+        displayText.innerText = firstOperand    
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "7"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button8.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "8"      
+        firstOperand += "8"    
+        displayText.innerText = firstOperand
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "8"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
 
 button9.addEventListener("click", e=>{
     if(switchVariable === 0){
-        firstOperand += "9"      
+        firstOperand += "9"   
+        displayText.innerText = firstOperand   
         console.log("first operator je " + firstOperand)    
     }   
     else{
         secondOperand += "9"
+        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
