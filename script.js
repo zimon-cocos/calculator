@@ -22,6 +22,7 @@ const operators = ["+","-","*","/"]
 let firstOperand = ""
 let secondOperand = ""
 let operator = ""
+let equationDisplay = ""
 let switchVariable = 0
 let total = 0
 
@@ -100,6 +101,8 @@ equalsBtn.addEventListener("click",e=>{
 
 })
 
+displayText.innertext = equationDisplay
+
 clearBtn.addEventListener("click",e=>{
     firstOperand = ""
     secondOperand = ""
@@ -123,9 +126,10 @@ addBtn.addEventListener("click",e=>{
         total = parseFloat(firstOperand) + parseFloat(secondOperand)
         secondOperand = ""
         console.log("total je " + total)
-        displayText.inert += "+" + secondOperand
+        displayText.innerText += "+" + secondOperand
     }
     else if(switchVariable > 1){
+        console.log("total je " + parseFloat(secondOperand) +" a " + total)
         total = parseFloat(secondOperand) + total
         secondOperand = ""
         console.log("total var2 je " + total)
@@ -138,8 +142,25 @@ addBtn.addEventListener("click",e=>{
 subtractBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
-    switchVariable += 1
-    operator += "-"
+    if(switchVariable == 0){
+        switchVariable += 1
+        operator += "-" 
+        displayText.innerText += "-"
+    }
+    else if(switchVariable == 1){
+        switchVariable += 1
+        total = parseFloat(firstOperand) - parseFloat(secondOperand)
+        secondOperand = ""
+        console.log("total je " + total)
+        displayText.innerText += "-" + secondOperand
+    }
+    else if(switchVariable > 1){
+        console.log("total je " + total +" a -" + parseFloat(secondOperand))
+        total = total - parseFloat(secondOperand) 
+        secondOperand = ""
+        console.log("total var2 je " + total)
+    }
+
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
 })
