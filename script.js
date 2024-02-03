@@ -17,11 +17,12 @@ const divide = function(a,b){
 let a = 0
 let b = 0
 const operators = ["+","-","*","/"]
-let firstOperator = ""
-let secondOperator = ""
-let operand = ""
+let firstOperand = ""
+let secondOperand = ""
+let operator = ""
+let switchVariable = 0
 
-let operate = function(){
+/*let operate = function(){
     let a = parseFloat(prompt("daj cislo 1"))
     let b = parseFloat(prompt("daj cislo 2"))
     let operator = prompt("daj +,-,* alebo /")
@@ -43,7 +44,7 @@ let operate = function(){
         return("dal si daco ine ako operator")    
         }
 
-    }
+    } */
 
 
 const displayText = document.getElementById("displayText")
@@ -59,54 +60,196 @@ const button6 = document.getElementById("button6")
 const button7 = document.getElementById("button7")
 const button8 = document.getElementById("button8")
 const button9 = document.getElementById("button9")
+const addBtn = document.getElementById("add")
+const subtractBtn = document.getElementById("subtract")
+const multiplyBtn = document.getElementById("multiply")
+const divideBtn = document.getElementById("divide")
+const equalsBtn = document.getElementById("equals")
+const clearBtn = document.getElementById("clear")
+
+
+equalsBtn.addEventListener("click",e=>{
+    switch(operator){
+        case "+":
+            console.log(`vysledok je ${parseFloat(firstOperand) + parseFloat(secondOperand)}`)
+            break;
+        case "-":
+            console.log(`vysledok je ${parseFloat(firstOperand) - parseFloat(secondOperand)}`)
+            break;
+        case "*":
+            console.log(`vysledok je ${parseFloat(firstOperand) * parseFloat(secondOperand)}`)
+            break;
+        case "/":
+            console.log(`vysledok je ${parseFloat(firstOperand) / parseFloat(secondOperand)}`)
+
+    }
+})
+
+clearBtn.addEventListener("click",e=>{
+     firstOperand = ""
+    secondOperand = ""
+    operator = ""
+    switchVariable = 0
+    console.log("Cleared")
+})
+
+
+addBtn.addEventListener("click",e=>{
+    console.log("switchvar pred je " + switchVariable)
+    console.log("operand pred je " + operator)
+    if(switchVariable == 0){
+        switchVariable += 1
+        operator += "+" 
+    }
+    else{
+        switchVariable += -1
+    }
+
+    console.log(switchVariable + " je switchvar")
+    console.log(operator + " je operand")
+})
+
+subtractBtn.addEventListener("click",e=>{
+    console.log("switchvar pred je " + switchVariable)
+    console.log("operand pred je " + operator)
+    switchVariable += 1
+    operator += "-"
+    console.log(switchVariable + " je switchvar")
+    console.log(operator + " je operand")
+})
+
+multiplyBtn.addEventListener("click",e=>{
+    console.log("switchvar pred je " + switchVariable)
+    console.log("operand pred je " + operator)
+    switchVariable += 1
+    operator += "*"
+    console.log(switchVariable + " je switchvar")
+    console.log(operator + " je operand")
+})
+
+divideBtn.addEventListener("click",e=>{
+    console.log("switchvar pred je " + switchVariable)
+    console.log("operand pred je " + operator)
+    switchVariable += 1
+    operator += "/"
+    console.log(switchVariable + " je switchvar")
+    console.log(operator + " je operand")
+})
+
+
+
+
+
+
+
 
 button0.addEventListener("click", e=>{
-    firstOperator += "0"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "0"
+        console.log("first operator je " + firstOperand)        
+    }
+    else{
+        secondOperand += "0"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button1.addEventListener("click", e=>{
-    firstOperator += "1"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "1"
+        console.log("first operator je " + firstOperand)               
+    }
+    else{
+        secondOperand += "1"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button2.addEventListener("click", e=>{
-    firstOperator += "2"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "2"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "2"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button3.addEventListener("click", e=>{
-    firstOperator += "3"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "3"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "3"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button4.addEventListener("click", e=>{
-    firstOperator += "4"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "4"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "4"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button5.addEventListener("click", e=>{
-    firstOperator += "5"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "5"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "5"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button6.addEventListener("click", e=>{
-    firstOperator += "6"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "6"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "6"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button7.addEventListener("click", e=>{
-    firstOperator += "7"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "7"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "7"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button8.addEventListener("click", e=>{
-    firstOperator += "8"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "8"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "8"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
 button9.addEventListener("click", e=>{
-    firstOperator += "9"
-    console.log(firstOperator)
+    if(switchVariable === 0){
+        firstOperand += "9"      
+        console.log("first operator je " + firstOperand)    
+    }   
+    else{
+        secondOperand += "9"
+        console.log("second operator je " + secondOperand)
+    }
 })
 
