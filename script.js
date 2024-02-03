@@ -23,6 +23,7 @@ let firstOperand = ""
 let secondOperand = ""
 let operator = ""
 let switchVariable = 0
+let total = 0
 
 /*let operate = function(){
     let a = parseFloat(prompt("daj cislo 1"))
@@ -109,9 +110,17 @@ addBtn.addEventListener("click",e=>{
         operator += "+" 
         displayText.innerText += "+"
     }
-    else{
-        switchVariable += -1
-        displayText.inert += "+"
+    else if(switchVariable == 1){
+        switchVariable += 1
+        total = parseFloat(firstOperand) + parseFloat(secondOperand)
+        secondOperand = ""
+        console.log("total je " + total)
+        displayText.inert += "+" + secondOperand
+    }
+    else if(switchVariable > 1){
+        total = parseFloat(secondOperand) + total
+        secondOperand = ""
+        console.log("total var2 je " + total)
     }
 
     console.log(switchVariable + " je switchvar")
