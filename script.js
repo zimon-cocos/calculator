@@ -72,7 +72,12 @@ const clearBtn = document.getElementById("clear")
 
 
 equalsBtn.addEventListener("click",e=>{
-    switch(operator){
+    
+    if(switchVariable == 2){
+        displayText.textContent = total
+    }
+    else{
+        switch(operator){
         case "+":
             console.log(`vysledok je ${parseFloat(firstOperand) + parseFloat(secondOperand)}`)
             displayText.innerText = `${parseFloat(firstOperand) + parseFloat(secondOperand)}`
@@ -89,7 +94,10 @@ equalsBtn.addEventListener("click",e=>{
             console.log(`vysledok je ${parseFloat(firstOperand) / parseFloat(secondOperand)}`)
             displayText.innerText = `${parseFloat(firstOperand) / parseFloat(secondOperand)}`
 
+    }    
     }
+    
+
 })
 
 clearBtn.addEventListener("click",e=>{
