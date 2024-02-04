@@ -52,8 +52,6 @@ let total = 0
 
 
 const displayText = document.getElementById("displayText")
-displayText.innerText = "WHAAAAAAAAAAAT"
-
 const button0 = document.getElementById("button0")
 const button1 = document.getElementById("button1")
 const button2 = document.getElementById("button2")
@@ -75,6 +73,7 @@ const clearBtn = document.getElementById("clear")
 equalsBtn.addEventListener("click",e=>{
     
     if(switchVariable == 2){
+        total = parseFloat(secondOperand) + parseFloat(total)
         displayText.textContent = total
     }
     else{
@@ -101,7 +100,7 @@ equalsBtn.addEventListener("click",e=>{
 
 })
 
-displayText.innertext = equationDisplay
+displayText.textContent = equationDisplay
 
 clearBtn.addEventListener("click",e=>{
     firstOperand = ""
@@ -119,20 +118,21 @@ addBtn.addEventListener("click",e=>{
     if(switchVariable == 0){
         switchVariable += 1
         operator += "+" 
-        displayText.innerText += "+"
+        displayText.textContent += equationDisplay + "+"
     }
     else if(switchVariable == 1){
         switchVariable += 1
         total = parseFloat(firstOperand) + parseFloat(secondOperand)
         secondOperand = ""
         console.log("total je " + total)
-        displayText.innerText += "+" + secondOperand
+        displayText.textContent += equationDisplay + "+" + secondOperand
     }
     else if(switchVariable > 1){
         console.log("total je " + parseFloat(secondOperand) +" a " + total)
         total = parseFloat(secondOperand) + total
         secondOperand = ""
         console.log("total var2 je " + total)
+        displayText.textContent += equationDisplay + "+" + secondOperand
     }
 
     console.log(switchVariable + " je switchvar")
@@ -145,7 +145,7 @@ subtractBtn.addEventListener("click",e=>{
     if(switchVariable == 0){
         switchVariable += 1
         operator += "-" 
-        displayText.innerText += "-"
+        displayText.innerText += equationDisplay + "-"
     }
     else if(switchVariable == 1){
         switchVariable += 1
@@ -193,12 +193,12 @@ divideBtn.addEventListener("click",e=>{
 button0.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "0"
-        displayText.innerText = firstOperand
+        displayText.innerText += equationDisplay + "0"
         console.log("first operator je " + firstOperand)        
     }
     else{
         secondOperand += "0"
-        displayText.innerText = secondOperand
+        displayText.innerText += equationDisplay + "0"
         console.log("second operator je " + secondOperand)
     }
 })
@@ -206,12 +206,12 @@ button0.addEventListener("click", e=>{
 button1.addEventListener("click", e=>{
     if(switchVariable === 0){
         firstOperand += "1"
-        displayText.innerText = firstOperand
+        displayText.innerText += equationDisplay + "1"
         console.log("first operator je " + firstOperand)               
     }
     else{
         secondOperand += "1"
-        displayText.innerText = secondOperand
+        displayText.innerText += equationDisplay + "1"
         console.log("second operator je " + secondOperand)
     }
 })
