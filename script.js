@@ -114,6 +114,13 @@ equalsBtn.addEventListener("click",e=>{
             console.log("Equal si clickol")
             isEqualClicked++
         }
+
+        else if(switchVariable == 2 && operator == "/"){
+            total = parseFloat(total) / parseFloat(secondOperand)
+            displayText.textContent = total
+            console.log("Equal si clickol")
+            isEqualClicked++
+        }
     }
     else{
         switchVariable = 1
@@ -326,11 +333,44 @@ multiplyBtn.addEventListener("click",e=>{
 divideBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
-    switchVariable += 1
-    operator += "/"
+    if(switchVariable == 0){
+        switchVariable += 1
+        operator = "/" 
+        displayText.innerText += equationDisplay + "/"}
+    else if(switchVariable == 1){
+            switchVariable += 1
+            checkOperatorSwitchvar1(operator)
+            operator = "/" 
+            secondOperand = ""
+            console.log("total je " + total)
+            displayText.innerText += equationDisplay + "/" + secondOperand
+        }
+    else if(switchVariable > 1){
+        console.log("total je " + parseFloat(secondOperand) +" a " + total)
+        switch(operator){
+            case "+":
+                total = parseFloat(total) + parseFloat(secondOperand)
+                break;
+            case "-":
+                total = parseFloat(total) - parseFloat(secondOperand)
+                break;
+            case "*":
+                total = parseFloat(total) * parseFloat(secondOperand)
+                break;
+            case "/":
+                total = parseFloat(total) / parseFloat(secondOperand)
+                break;} 
+            //total = parseFloat(secondOperand) + total
+        operator = "/" 
+        secondOperand = ""
+        console.log("total var2 je " + total)
+        displayText.textContent += equationDisplay + "/" + secondOperand
+        }
+    
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
 })
+
 
 
 
