@@ -14,7 +14,7 @@ button{
     flex: 1;
     justify-content: center;
     align-items: center;
-    font-size: large;
+    font-size: 32px;
     font-family: monospace;
     margin: 16px
 

@@ -339,14 +339,14 @@ divideBtn.addEventListener("click",e=>{
     if(switchVariable == 0){
         switchVariable += 1
         operator = "/" 
-        displayText.innerText += equationDisplay + "/"}
+        displayText.innerText += equationDisplay + "÷"}
     else if(switchVariable == 1){
             switchVariable += 1
             checkOperatorSwitchvar1(operator)
             operator = "/" 
             secondOperand = ""
             console.log("total je " + total)
-            displayText.innerText += equationDisplay + "/" + secondOperand
+            displayText.innerText += equationDisplay + "÷" + secondOperand
         }
     else if(switchVariable > 1){
         console.log("total je " + parseFloat(secondOperand) +" a " + total)
@@ -367,7 +367,7 @@ divideBtn.addEventListener("click",e=>{
         operator = "/" 
         secondOperand = ""
         console.log("total var2 je " + total)
-        displayText.textContent += equationDisplay + "/" + secondOperand
+        displayText.textContent += equationDisplay + "÷" + secondOperand
         }
     
     console.log(switchVariable + " je switchvar")
