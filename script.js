@@ -130,17 +130,20 @@ equalsBtn.addEventListener("click",e=>{
 
 
 })
-
+    function ClearScreen(){
+         firstOperand = ""
+         secondOperand = ""
+         operator = ""
+         switchVariable = 0
+         displayText.innerText = ""
+         isEqualClicked = 0
+         console.log("Cleared")    
+    }
 displayText.textContent = equationDisplay
 
 clearBtn.addEventListener("click",e=>{
-    firstOperand = ""
-    secondOperand = ""
-    operator = ""
-    switchVariable = 0
-    displayText.innerText = ""
-    isEqualClicked = 0
-    console.log("Cleared")
+    ClearScreen()
+
 })
 
 
@@ -380,7 +383,11 @@ divideBtn.addEventListener("click",e=>{
 
 
 button0.addEventListener("click", e=>{
-    if(switchVariable === 0){
+    if(operator == "/"){
+        displayText.textContent = "Delit nulou nejdes"
+        setTimeout(ClearScreen, 2000)
+    }
+    else if(switchVariable === 0){
         firstOperand += "0"
         displayText.innerText += equationDisplay + "0"
         console.log("first operator je " + firstOperand)        
