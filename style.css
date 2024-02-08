@@ -12,41 +12,50 @@ button{
     background-color: yellow;
     display: flex;
     flex: 1;
-    margin: 24px
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-family: monospace;
+    margin: 16px
 
 }
 
 #line1,#line2,#line3,#line4{
-    background-color: aqua;
+    background-color: blue;
     display: flex;
     flex: 1;
     flex: row;
     justify-content: center;
 }
 
+
+
 #calcBody{
     background-color: blue;
+    border-radius: 16px;
     display: flex;
     flex: 1;
     flex-direction: column;
     max-width: 500px;
     max-height: 800px;
     margin: 100px;
+    padding-bottom:16px;
 
 }
 
 #display{
-    background-color: black;
+    background-color: #476930;
     display: flex;
     flex: 1;
     margin: 28px;
+    margin-bottom: 90px;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
 #displayText{
-    background-color: black;
-    color: white;
+
+    color: black;
     margin: 4px;
 
 }

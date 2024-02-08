@@ -491,7 +491,6 @@ button8.addEventListener("click", e=>{
     }   
     else{
         displayText.innerText += equationDisplay + "8"
-        displayText.innerText = secondOperand
         console.log("second operator je " + secondOperand)
     }
 })
