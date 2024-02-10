@@ -26,6 +26,7 @@ let equationDisplay = ""
 let switchVariable = 0
 let total = 0
 let isEqualClicked = 0
+let secondaryOperationAmount = 0
 
 let checkOperatorSwitchvar1 = function(operator){
     switch(operator){
@@ -44,6 +45,26 @@ let checkOperatorSwitchvar1 = function(operator){
     console.log("checkOperatorSwitchvar1 ti vyratalo total ako " + total)  
     return total  
 }
+
+let checkOperatorSwitchvar2 = function(operator){
+    switch(operator){
+        case "+":
+            total = parseFloat(total) + parseFloat(secondOperand)
+            break;
+        case "-":
+            total = parseFloat(total) - parseFloat(secondOperand)
+            break;
+        case "*":
+            total = parseFloat(total) * parseFloat(secondOperand)
+            break;
+        case "/":
+            total = parseFloat(total) / parseFloat(secondOperand)
+            break;}
+    console.log("checkOperatorSwitchvar2 ti vyratalo total ako " + total)  
+    return total  
+}
+
+
 
 
 /*let operate = function(){
@@ -123,9 +144,10 @@ equalsBtn.addEventListener("click",e=>{
         }
     }
     else{
-        switchVariable = 1
-        displayText.textContent = total
-    }
+        displayText.textContent = checkOperatorSwitchvar2(operator)
+        secondOperand = ""
+        secondaryOperationAmount = 0
+        }
     
 
 
@@ -137,6 +159,7 @@ equalsBtn.addEventListener("click",e=>{
          switchVariable = 0
          displayText.innerText = ""
          isEqualClicked = 0
+         secondaryOperationAmount = 0
          console.log("Cleared")    
     }
 displayText.textContent = equationDisplay
@@ -156,18 +179,21 @@ clearBtn.addEventListener("click",e=>{
 // ak das subtract ako prve - snazis sa dat prve zaporne cislo tak ti da NaN
 // 5.2 19:57 dneska sa mi iba podarilo pridat ostatne cislice, multiply asi nefunguje
 // 8.2 multiply relativne funguje, kalkulacka nepozna nadradenost operatorov
+// 10.2 11:59 operacie po kliknuti equalBtn funguju spravne, aj ked kliknes equal hned po zadani dalsieho operandu, aj ked zadas dlhsiu rovnicu na vypocet k equal co ti vysiel pred tym. Toto funguje iba
+// pre addBtn, zatial
 
 
 addBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
     console.log("Equation display: " + equationDisplay)
-    if(switchVariable == 0){
-        switchVariable += 1
-        operator = "+" 
-        displayText.textContent += equationDisplay + "+"
-    }
-    else if(switchVariable == 1){
+    if(isEqualClicked == 0){
+        if(switchVariable == 0){
+         switchVariable += 1
+         operator = "+" 
+         displayText.textContent += equationDisplay + "+"
+     }
+        else if(switchVariable == 1){
         switchVariable += 1
         switch(operator){
             case "+":
@@ -187,8 +213,8 @@ addBtn.addEventListener("click",e=>{
         secondOperand = ""
         console.log("total je " + total)
         displayText.textContent += equationDisplay + "+" + secondOperand
-    }
-    else if(switchVariable > 1){
+     }
+        else if(switchVariable > 1){
         console.log("total je " + parseFloat(secondOperand) +" a " + total)
         switch(operator){
             case "+":
@@ -208,7 +234,21 @@ addBtn.addEventListener("click",e=>{
         secondOperand = ""
         console.log("total var2 je " + total)
         displayText.textContent += equationDisplay + "+" + secondOperand
+     }   
     }
+    else if(secondaryOperationAmount == 0){
+        operator = "+"
+        displayText.textContent += equationDisplay + "+"
+        secondaryOperationAmount++
+        secondOperand = ""
+    }
+    else{
+        operator = "+"
+        displayText.textContent += equationDisplay + "+"
+        checkOperatorSwitchvar2(operator)
+        secondOperand = ""
+    }
+
 
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
@@ -243,28 +283,6 @@ subtractBtn.addEventListener("click",e=>{
         secondOperand = ""
         console.log("total je " + total)
         displayText.textContent += equationDisplay + "-" + secondOperand
-    }
-    else if(switchVariable == 1){
-        switchVariable += 1
-        switch(operator){
-            case "+":
-                total = parseFloat(firstOperand) + parseFloat(secondOperand)
-                break;
-            case "-":
-                total = parseFloat(firstOperand) - parseFloat(secondOperand)
-                break;
-            case "*":
-                total = parseFloat(firstOperand) * parseFloat(secondOperand)
-                break;
-            case "/":
-                total = parseFloat(firstOperand) / parseFloat(secondOperand)
-                break;    
-        }
-        //total = parseFloat(firstOperand) - parseFloat(secondOperand)
-        operator = "-" 
-        secondOperand = ""
-        console.log("total je " + total)
-        displayText.innerText += equationDisplay + "-" + secondOperand
     }
     else if(switchVariable > 1){
         console.log("total je " + total +" a -" + parseFloat(secondOperand))
