@@ -208,7 +208,6 @@ addBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(firstOperand) / parseFloat(secondOperand)
                 break;}    
-        //total = parseFloat(firstOperand) + parseFloat(secondOperand)
         operator = "+" 
         secondOperand = ""
         console.log("total je " + total)
@@ -229,7 +228,6 @@ addBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(total) / parseFloat(secondOperand)
                 break;} 
-        //total = parseFloat(secondOperand) + total
         operator = "+" 
         secondOperand = ""
         console.log("total var2 je " + total)
@@ -243,9 +241,10 @@ addBtn.addEventListener("click",e=>{
         secondOperand = ""
     }
     else{
+        checkOperatorSwitchvar2(operator)
         operator = "+"
         displayText.textContent += equationDisplay + "+"
-        checkOperatorSwitchvar2(operator)
+
         secondOperand = ""
     }
 
@@ -258,12 +257,13 @@ subtractBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
     console.log("Equation display: " + equationDisplay)
-    if(switchVariable == 0){
+    if(isEqualClicked == 0){
+        if(switchVariable == 0){
         switchVariable += 1
         operator = "-" 
         displayText.innerText += equationDisplay + "-"
-    }
-    else if(switchVariable == 1){
+     }
+     else if(switchVariable == 1){
         switchVariable += 1
         switch(operator){
             case "+":
@@ -278,13 +278,12 @@ subtractBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(firstOperand) / parseFloat(secondOperand)
                 break;}    
-        //total = parseFloat(firstOperand) + parseFloat(secondOperand)
         operator = "-" 
         secondOperand = ""
         console.log("total je " + total)
         displayText.textContent += equationDisplay + "-" + secondOperand
-    }
-    else if(switchVariable > 1){
+     }
+        else if(switchVariable > 1){
         console.log("total je " + total +" a -" + parseFloat(secondOperand))
         switch(operator){
             case "+":
@@ -299,12 +298,28 @@ subtractBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(total) / parseFloat(secondOperand)
                 break;} 
-        //total = total - parseFloat(secondOperand) 
         operator = "-" 
         secondOperand = ""
         console.log("total var2 je " + total)
         displayText.textContent += equationDisplay + "-" + secondOperand
+    }    
     }
+    else if(secondaryOperationAmount == 0){
+        operator = "-"
+        displayText.textContent += equationDisplay + "-"
+        secondaryOperationAmount++
+        secondOperand = ""
+    }
+    else{
+        checkOperatorSwitchvar2(operator)
+        operator = "-"
+        displayText.textContent += equationDisplay + "-"
+
+        secondOperand = ""
+    }
+
+
+    
 
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
@@ -313,11 +328,12 @@ subtractBtn.addEventListener("click",e=>{
 multiplyBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
-    if(switchVariable == 0){
+    if(isEqualClicked == 0){
+          if(switchVariable == 0){
         switchVariable += 1
         operator = "*" 
         displayText.innerText += equationDisplay + "*"}
-    else if(switchVariable == 1){
+        else if(switchVariable == 1){
             switchVariable += 1
             checkOperatorSwitchvar1(operator)
             operator = "*" 
@@ -325,7 +341,7 @@ multiplyBtn.addEventListener("click",e=>{
             console.log("total je " + total)
             displayText.innerText += equationDisplay + "*" + secondOperand
         }
-    else if(switchVariable > 1){
+     else if(switchVariable > 1){
         console.log("total je " + parseFloat(secondOperand) +" a " + total)
         switch(operator){
             case "+":
@@ -340,13 +356,26 @@ multiplyBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(total) / parseFloat(secondOperand)
                 break;} 
-            //total = parseFloat(secondOperand) + total
         operator = "*" 
         secondOperand = ""
         console.log("total var2 je " + total)
         displayText.textContent += equationDisplay + "*" + secondOperand
         }
-    
+    }
+    else if(secondaryOperationAmount == 0){
+        operator = "*"
+        displayText.textContent += equationDisplay + "*"
+        secondaryOperationAmount++
+        secondOperand = ""
+    }
+    else{
+        checkOperatorSwitchvar2(operator)
+        operator = "*"
+        displayText.textContent += equationDisplay + "*"
+
+        secondOperand = ""
+    }
+
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
 })
@@ -354,11 +383,12 @@ multiplyBtn.addEventListener("click",e=>{
 divideBtn.addEventListener("click",e=>{
     console.log("switchvar pred je " + switchVariable)
     console.log("operand pred je " + operator)
-    if(switchVariable == 0){
+    if(isEqualClicked == 0){
+     if(switchVariable == 0){
         switchVariable += 1
         operator = "/" 
         displayText.innerText += equationDisplay + "÷"}
-    else if(switchVariable == 1){
+     else if(switchVariable == 1){
             switchVariable += 1
             checkOperatorSwitchvar1(operator)
             operator = "/" 
@@ -366,7 +396,7 @@ divideBtn.addEventListener("click",e=>{
             console.log("total je " + total)
             displayText.innerText += equationDisplay + "÷" + secondOperand
         }
-    else if(switchVariable > 1){
+     else if(switchVariable > 1){
         console.log("total je " + parseFloat(secondOperand) +" a " + total)
         switch(operator){
             case "+":
@@ -381,12 +411,27 @@ divideBtn.addEventListener("click",e=>{
             case "/":
                 total = parseFloat(total) / parseFloat(secondOperand)
                 break;} 
-            //total = parseFloat(secondOperand) + total
         operator = "/" 
         secondOperand = ""
         console.log("total var2 je " + total)
         displayText.textContent += equationDisplay + "÷" + secondOperand
-        }
+        } 
+    }
+    else if(secondaryOperationAmount == 0){
+        operator = "/"
+        displayText.textContent += equationDisplay + "/"
+        secondaryOperationAmount++
+        secondOperand = ""
+    }
+    else{
+        checkOperatorSwitchvar2(operator)
+        operator = "/"
+        displayText.textContent += equationDisplay + "/"
+
+        secondOperand = ""
+    }
+
+
     
     console.log(switchVariable + " je switchvar")
     console.log(operator + " je operand")
