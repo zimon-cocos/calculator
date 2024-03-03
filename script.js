@@ -7,6 +7,16 @@ let total = 0
 let isEqualClicked = 0
 let secondaryOperationAmount = 0
 
+function ClearScreen(){
+    firstOperand = ""
+    secondOperand = ""
+    operator = ""
+    switchVariable = 0
+    displayText.innerText = ""
+    isEqualClicked = 0
+    secondaryOperationAmount = 0
+    }
+
 function checkOperatorSwitchvar1(operator){
     switch(operator){
         case "+":
@@ -19,7 +29,13 @@ function checkOperatorSwitchvar1(operator){
             total = parseFloat(firstOperand) * parseFloat(secondOperand)
             break;
         case "/":
-            total = parseFloat(firstOperand) / parseFloat(secondOperand)
+            if(secondOperand == 0){
+                total = "Delit nulou nejde :/"
+                setTimeout(ClearScreen, 3000)
+            }
+            else{
+                total = parseFloat(firstOperand) / parseFloat(secondOperand)
+            }
             break;}
     return total  
 }
@@ -36,20 +52,17 @@ function checkOperatorSwitchvar2(operator){
             total = parseFloat(total) * parseFloat(secondOperand)
             break;
         case "/":
-            total = parseFloat(total) / parseFloat(secondOperand)
+            if(secondOperand == 0){
+                total = "Delit nulou nejde :/"
+                setTimeout(ClearScreen, 3000)
+            }
+            else{
+                total = parseFloat(total) / parseFloat(secondOperand)                
+            }
             break;}
     return total  
 }
 
-function ClearScreen(){
-    firstOperand = ""
-    secondOperand = ""
-    operator = ""
-    switchVariable = 0
-    displayText.innerText = ""
-    isEqualClicked = 0
-    secondaryOperationAmount = 0
-    }
 
 const displayText = document.getElementById("displayText")
 const button0 = document.getElementById("button0")
@@ -171,7 +184,7 @@ multiplyBtn.addEventListener("click",e=>{
         switchVariable += 1
         operator = "*" 
         displayText.innerText += equationDisplay + "*"}
-        else if(switchVariable == 1){
+     else if(switchVariable == 1){
             switchVariable += 1
             checkOperatorSwitchvar1(operator)
             operator = "*" 
@@ -222,14 +235,14 @@ divideBtn.addEventListener("click",e=>{
     }
     else if(secondaryOperationAmount == 0){
         operator = "/"
-        displayText.textContent += equationDisplay + "/"
+        displayText.textContent += equationDisplay + "÷"
         secondaryOperationAmount++
         secondOperand = ""
     }
     else{
         checkOperatorSwitchvar2(operator)
         operator = "/"
-        displayText.textContent += equationDisplay + "/"
+        displayText.textContent += equationDisplay + "÷"
         secondOperand = ""
     }
 })
